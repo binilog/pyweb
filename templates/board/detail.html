@@ -58,6 +58,12 @@
                             </span>
                             <span>
                                 -{{ comment.author }}, {{ comment.create_date }}
+                                {% if comment.modify_date %}
+                                    (수정:{{ comment.modify_date }})
+                            {% endif %}
+                            </span>
+                            <span>
+                                -{{ comment.author }}, {{ comment.create_date }}
                             </span>
                             {% if request.user == comment.author %}
                             <a href="{% url 'board:comment_modify_question' comment.id %}">수정</a>
